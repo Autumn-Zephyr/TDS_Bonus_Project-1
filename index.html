@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Agent POC</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-4">
+        <h1 class="mb-4">LLM Agent POC - Multi-Tool Reasoning</h1>
+        
+        <!-- Configuration Panel -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <label for="provider" class="form-label">LLM Provider</label>
+                <select id="provider" class="form-select">
+                    <option value="openai">OpenAI</option>
+                    <option value="openrouter" selected>OpenRouter</option>
+                    <option value="aipipe">AIPipe Proxy</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="model" class="form-label">Model</label>
+                <select id="model" class="form-select">
+                    <option value="gpt-4">GPT-4</option>
+                    <option value="gpt-3.5-turbo" selected>GPT-3.5 Turbo</option>
+                    <option value="claude-3-sonnet">Claude 3 Sonnet</option>
+                    <option value="anthropic/claude-3.5-sonnet">Claude 3.5 Sonnet</option>
+                    <option value="meta-llama/llama-3.1-70b-instruct">Llama 3.1 70B</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="apiKey" class="form-label">API Key</label>
+                <input type="password" id="apiKey" class="form-control" placeholder="Enter API key">
+                <small class="form-text text-muted">
+                    <a href="#" id="apiKeyLink" target="_blank">Get API key here</a>
+                </small>
+            </div>
+        </div>
+
+        <!-- Google Search API Configuration -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <label for="googleApiKey" class="form-label">Google Search API Key</label>
+                <input type="password" id="googleApiKey" class="form-control" placeholder="Google API key">
+                <small class="form-text text-muted">
+                    <a href="https://developers.google.com/custom-search/v1/overview" target="_blank">Get Google API key</a>
+                </small>
+            </div>
+            <div class="col-md-6">
+                <label for="searchEngineId" class="form-label">Search Engine ID</label>
+                <input type="text" id="searchEngineId" class="form-control" placeholder="Custom Search Engine ID">
+                <small class="form-text text-muted">
+                    <a href="https://cse.google.com/cse/" target="_blank">Create Custom Search Engine</a>
+                </small>
+            </div>
+        </div>
+
+        <!-- Alert Container -->
+        <div id="alertContainer"></div>
+
+        <!-- Chat Container -->
+        <div class="chat-container mb-3" id="chatContainer"></div>
+
+        <!-- Input Area -->
+        <div class="input-group">
+            <input type="text" id="userInput" class="form-control" placeholder="Type your message..." disabled>
+            <button class="btn btn-primary" id="sendBtn" disabled>Send</button>
+            <button class="btn btn-secondary" id="clearBtn">Clear</button>
+        </div>
+
+        <!-- Tools Available Note -->
+        <div class="mt-2 p-2 bg-white border rounded-3 shadow-sm">
+            <small class="text-muted d-block mb-1">Tools available:</small>
+            <span class="badge bg-secondary me-1 mb-1">JavaScript</span>
+            <span class="badge bg-secondary me-1 mb-1">Python</span>
+            <span class="badge bg-secondary me-1 mb-1">HTML</span>
+            <span class="badge bg-secondary me-1 mb-1">CSS</span>
+            <span class="badge bg-secondary me-1 mb-1">SQL</span>
+            <span class="badge bg-secondary me-1 mb-1">Bash</span>
+        </div>
+
+        <!-- Code Execution Sandbox -->
+        <div id="codeExecutionArea" style="display: none;">
+            <h5>Code Execution Result:</h5>
+            <div id="codeResult" class="code-execution"></div>
+        </div>
+
+        <!-- Python Execution Area -->
+        <div id="pythonExecutionArea" style="display: none;">
+            <h5>Python Execution Result:</h5>
+            <div id="pythonResult" class="code-execution"></div>
+        </div>
+
+        <!-- Generated Code Area -->
+        <div id="generatedCodeArea" style="display: none;">
+            <h5>Generated Code:</h5>
+            <div id="generatedCodeResult" class="code-execution"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
