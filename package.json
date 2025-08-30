@@ -1,0 +1,35 @@
+{
+  "name": "llm-agent-poc",
+  "version": "1.0.0",
+  "description": "Browser-based LLM Agent with multi-tool reasoning capabilities",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx http-server . -p 8000 -o",
+    "dev": "npx live-server --port=8000",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "llm",
+    "agent",
+    "ai",
+    "browser",
+    "javascript",
+    "tools",
+    "openai",
+    "search"
+  ],
+  "author": "LLM Agent POC",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/llm-agent-poc.git"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
